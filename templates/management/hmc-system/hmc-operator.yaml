@@ -1,0 +1,27 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: OCIRepository
+metadata:
+  name: hmc
+  namespace: $HMC_NAMESPACE
+spec:
+  interval: 5m0s
+  url: oci://ghcr.io/mirantis/hmc/charts/hmc
+  ref:
+    tag: $HMC_VERSION
+
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: hmc
+  namespace: $HMC_NAMESPACE
+spec:
+  chartRef:
+    kind: OCIRepository
+    name: hmc
+    namespace: $HMC_NAMESPACE
+  interval: 10m
+  values:
+    flux2:
+      enabled: false

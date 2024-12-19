@@ -1,0 +1,6 @@
+- op: add
+  path: /spec/services
+  value:
+    - template: ingress-nginx-4-11-0
+      name: ingress-nginx
+      namespace: ingress-nginx

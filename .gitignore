@@ -1,0 +1,14 @@
+.idea
+.aws
+*.tfvars
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+.keys
+*kubeconfig.yaml
+bin
+.kubeseal
+temp.txt
+kubeconfigs
+tests

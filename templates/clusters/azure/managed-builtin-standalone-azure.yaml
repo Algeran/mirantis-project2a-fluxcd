@@ -1,0 +1,18 @@
+---
+apiVersion: hmc.mirantis.com/v1alpha1
+kind: ManagedCluster
+metadata:
+  name: managed-builtin-standalone-azure
+  namespace: $HMC_NAMESPACE
+spec:
+  credential: $AZURE_CREDENTIAL_NAME
+  dryRun: false
+  config:
+    location: germanywestcentral
+    subscriptionID: $AZURE_SUBSCRIPTION_ID
+    controlPlaneNumber: 1
+    workersNumber: 2
+    controlPlane:
+      vmSize: Standard_A4_v2
+    worker:
+      vmSize: Standard_A4_v2
